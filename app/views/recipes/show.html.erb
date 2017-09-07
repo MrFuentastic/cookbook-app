@@ -1,9 +1,17 @@
 <h1>Recipe</h1>
 <h2>Title: <%= @recipe.title%></h2>
+<h5>Updated On: <%= @recipe.friendly_updated_at %></h5>
 <h3>Chef: <%= @recipe.chef%></h3>
-<h4>Ingredients: <%= @recipe.ingredients%></h4>
-<h4>Directions: <%= @recipe.directions%></h4>
-<br>
+<h4>Ingredients:</h4>
+<% @recipe.ingredients.split(", ").each do |ingredient| %>
+<li><%= ingredient %></li>
+<% end %>
+<h4>Directions: </h4>
+<ol>
+  <% @recipe.directions_list.each do |direction| %>
+    <li><%= direction %></li>
+  <% end %>
+</ol>
 <a href="/recipes/<%= @recipe.id %>/edit" class="btn btn-warning">Edit Recipe</a>
 
 <a href="/recipes/<%= @recipe.id %>/" data-method="delete"><input type="submit" value="Delete Recipe" class="btn btn-danger"></a>
