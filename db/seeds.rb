@@ -1,39 +1,27 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
-# recipe = Recipe.new(
-#                     title:"Hand Sandwich",
-#                     chef:"Josh",
-#                     ingredients:"left hand, right hand, lettuce, tomato, mayo, cheese",
-#                     directions:"place ingredients on left hand, put right hand on top, enjoy"
-#                     )
-
-# recipe.save
-
-# recipe = Recipe.new(
-#                     title:"Garbage Lagsana",
-#                     chef:"Bad Josh",
-#                     ingredients:"old chinese food, socks, banana peel, hot pepper",
-#                     directions:"layer ingredients in a pan, preheat oven to 350, let cook for 5 hours, let cool"
-#                     )
-
-# recipe.save
-
-Category.create!(name: "Delicious")
-Category.create!(name: "Disgusting")
-Category.create!(name: "Easy")
-Category.create!(name: "Carnivorous")
-
-CategoryRecipe.create!(recipe_id: 1, category_id: 2)
-CategoryRecipe.create!(recipe_id: 1, ccategory_id: 4)
-CategoryRecipe.create!(recipe_id: 2, category_id: 3)
-CategoryRecipe.create!(recipe_id: 2, category_id: 2)
-CategoryRecipe.create!(recipe_id: 4, category_id: 1)
-CategoryRecipe.create!(recipe_id: 4, category_id: 3)
-CategoryRecipe.create!(recipe_id: 6, category_id: 1)
-CategoryRecipe.create!(recipe_id: 6, category_id: 3)
+Category.create!([
+  {name: "Delicious"},
+  {name: "Disgusting"},
+  {name: "Easy"},
+  {name: "Carnivorous"}
+])
+CategoryRecipe.create!([
+  {category_id: 2, recipe_id: 1},
+  {category_id: 4, recipe_id: 1},
+  {category_id: 3, recipe_id: 2},
+  {category_id: 2, recipe_id: 2},
+  {category_id: 1, recipe_id: 4},
+  {category_id: 3, recipe_id: 4},
+  {category_id: 1, recipe_id: 6},
+  {category_id: 3, recipe_id: 6}
+])
+Recipe.create!([
+  {title: "Hand Sandwich", ingredients: "left hand, right hand, lettuce, tomato, mayo, cheese", directions: "place ingredients on left hand, put right hand on top, enjoy", image_url: nil, prep_time: nil, user_id: nil},
+  {title: "Raw Eggs", ingredients: "live chicken, pair of gloves", directions: "Put gloves on hands, firmly hold chicken, squeeze", image_url: nil, prep_time: nil, user_id: nil},
+  {title: "french toast!", ingredients: "bread 2 eggs 2/3 cup milk butter some powdered sugah ", directions: "beat the eggs with the milk dip the bread and fry that shit up", image_url: nil, prep_time: nil, user_id: nil},
+  {title: "fried eggs", ingredients: "3 or 4 eggs, some butter", directions: "heat up the butter, put the eggs in", image_url: nil, prep_time: nil, user_id: nil}
+])
+User.create!([
+  {name: "Joe Cool", email: "joe@gmail.com", password_digest: "$2a$10$FqpmIFPCa3U4d7lgZoLY3OqQ97UZXrEWRa9izmNurbeX6vux2JhZa"},
+  {name: "asdf", email: "asdf@okasdf.com", password_digest: "$2a$10$QyPdKR0BVDDSGxb75xOcyO9HY2QPoqT1YT.hmJwIrBm9.GHIBB71O"},
+  {name: "asdf", email: "asdf@asdf.com", password_digest: "$2a$10$eGgBJzc.2tS379E/waU3eeJPVmCk6wgFzVumADxpUr3dXg4dUtjc2"}
+])
